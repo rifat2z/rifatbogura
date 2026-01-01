@@ -149,6 +149,7 @@
             list-style: none;
             gap: 2.5rem;
             transition: all 0.3s ease;
+            align-items: center; /* Center items for button alignment */
         }
 
         .nav-links a {
@@ -164,7 +165,28 @@
             color: var(--accent-color);
         }
 
-        .nav-links a::after {
+        /* Resume Button Styling */
+        .nav-links .resume-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid var(--accent-color);
+            padding: 8px 20px;
+            border-radius: 50px;
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links .resume-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3);
+        }
+
+        .nav-links a:not(.resume-btn)::after {
             content: '';
             position: absolute;
             bottom: -5px;
@@ -175,8 +197,8 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
+        .nav-links a:not(.resume-btn):hover::after,
+        .nav-links a:not(.resume-btn).active::after {
             width: 100%;
         }
 
@@ -304,7 +326,7 @@
             left: 0;
             width: 0;
             height: 100%;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255,255, 255, 0.1);
             transition: width 0.4s ease;
         }
 
@@ -1171,6 +1193,12 @@
                 <li><a href="#education" class="nav-link">Education</a></li>
                 <li><a href="#certificates" class="nav-link">Certificates</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
+                <!-- RESUME DOWNLOAD BUTTON ADDED HERE -->
+                <li>
+                    <a href="https://drive.google.com/file/d/1rzZ9-D42DUOOk1x5YR9m2SCQp2e3jDcD/view?usp=drive_link" target="_blank" class="nav-link resume-btn">
+                        <i class="fas fa-download"></i> Resume
+                    </a>
+                </li>
             </ul>
             <div class="menu-toggle" id="menu-toggle">
                 <span></span>
@@ -1190,6 +1218,12 @@
             <li><a href="#education" class="nav-link">Education</a></li>
             <li><a href="#certificates" class="nav-link">Certificates</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
+            <!-- RESUME DOWNLOAD BUTTON ADDED TO MOBILE MENU -->
+            <li>
+                <a href="https://drive.google.com/file/d/1rzZ9-D42DUOOk1x5YR9m2SCQp2e3jDcD/view?usp=drive_link" target="_blank" class="nav-link resume-btn">
+                    <i class="fas fa-download"></i> Resume
+                </a>
+            </li>
         </ul>
     </div>
 
@@ -1258,7 +1292,7 @@
             </div>
         </section>
 
-        <!-- Projects Section (UPDATED) -->
+        <!-- Projects Section -->
         <section id="projects" class="projects fade-in">
             <div class="container">
                 <div class="section-title">
@@ -1289,7 +1323,7 @@
                     <!-- Project 2: Billing Web App -->
                     <div class="project-card">
                         <div class="project-img">
-                            <i class="fas fa-file-invoice-dollar"></i>
+                            <i class="fas fa-cash-register"></i>
                         </div>
                         <div class="project-content">
                             <h3>Billing Web App</h3>
@@ -1313,7 +1347,7 @@
                         </div>
                         <div class="project-content">
                             <h3>Invoice Generator</h3>
-                            <p>A desktop application for shops to create and manage invoices, developed using Java Swing for a standalone solution.</p>
+                            <p>A desktop application for shops to create and manage invoices, developed using Java Swing.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">Java</span>
                                 <span class="tech-tag">Java Swing</span>
@@ -1332,7 +1366,7 @@
                         </div>
                         <div class="project-content">
                             <h3>Weather Dashboard</h3>
-                            <p>A simple, responsive weather application that fetches real-time data from a public API and displays current conditions.</p>
+                            <p>A simple, responsive weather application that fetches real-time data from a public API.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">HTML</span>
                                 <span class="tech-tag">CSS</span>
@@ -1353,7 +1387,7 @@
                         </div>
                         <div class="project-content">
                             <h3>Realtime Chatting Web App</h3>
-                            <p>A messenger-like real-time chat application allowing users to communicate instantly with socket integration.</p>
+                            <p>A messenger-like real-time chat application allowing users to communicate instantly.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">Web</span>
                                 <span class="tech-tag">Socket.io</span>
@@ -1373,7 +1407,7 @@
                         </div>
                         <div class="project-content">
                             <h3>Islamic Hadis Web</h3>
-                            <p>A website dedicated to Islamic Hadis, featuring search functionality and beautiful UI for reading sacred texts.</p>
+                            <p>A website dedicated to Islamic Hadis, featuring search functionality and beautiful UI.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">HTML</span>
                                 <span class="tech-tag">CSS</span>
@@ -1386,7 +1420,7 @@
                         </div>
                     </div>
                     
-                    <!-- Project 7: More Projects (R o kisu) -->
+                    <!-- Project 7: More Projects -->
                     <div class="project-card" style="border: 2px dashed var(--accent-color);">
                         <div class="project-img" style="background: linear-gradient(135deg, #333, #111);">
                             <i class="fab fa-github" style="font-size: 4rem;"></i>
@@ -1404,7 +1438,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -1704,7 +1737,8 @@
             emailjs.send('service_n6l0q49', 'template_1xmrmuc', templateParams)
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
-                    alert('Message sent successfully!');
+                    // UPDATED SUCCESS MESSAGE
+                    alert('Your message has been sent successfully. I’ll respond soon.');
                     this.reset(); // Reset form
                 }, function(error) {
                     console.log('FAILED...', error);
