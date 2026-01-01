@@ -120,7 +120,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(10, 10, 15, 0.8);
+            background: rgba(10, 10, 15, 0.9);
             backdrop-filter: blur(15px);
             z-index: 1000;
             padding: 1rem 0;
@@ -144,12 +144,18 @@
             -webkit-text-fill-color: transparent;
         }
 
+        /* Wrapper for Navigation Links and Resume Button */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 2rem;
             transition: all 0.3s ease;
-            align-items: center; /* Center items for button alignment */
         }
 
         .nav-links a {
@@ -165,28 +171,7 @@
             color: var(--accent-color);
         }
 
-        /* Resume Button Styling */
-        .nav-links .resume-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            border: 1px solid var(--accent-color);
-            padding: 8px 20px;
-            border-radius: 50px;
-            color: var(--accent-color);
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links .resume-btn:hover {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3);
-        }
-
-        .nav-links a:not(.resume-btn)::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
             bottom: -5px;
@@ -197,9 +182,30 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links a:not(.resume-btn):hover::after,
-        .nav-links a:not(.resume-btn).active::after {
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
+        }
+
+        /* Resume Button Styling */
+        .nav-actions .resume-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid var(--accent-color);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-actions .resume-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3);
         }
 
         .menu-toggle {
@@ -1025,7 +1031,7 @@
                 display: flex;
             }
 
-            .nav-links {
+            .nav-actions {
                 display: none;
             }
 
@@ -1100,7 +1106,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            z-index: 1001;
+            z-index: 1001; /* Topmost always */
             box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
             transition: all 0.3s ease;
         }
@@ -1185,21 +1191,26 @@
     <header>
         <nav class="container">
             <a href="#" class="logo">Rifat<span>.</span></a>
-            <ul class="nav-links">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#certificates" class="nav-link">Certificates</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-                <!-- RESUME DOWNLOAD BUTTON ADDED HERE -->
-                <li>
-                    <a href="https://drive.google.com/file/d/1rzZ9-D42DUOOk1x5YR9m2SCQp2e3jDcD/view?usp=drive_link" target="_blank" class="nav-link resume-btn">
-                        <i class="fas fa-download"></i> Resume
-                    </a>
-                </li>
-            </ul>
+            
+            <!-- Navigation Actions Wrapper (Links + Resume) -->
+            <div class="nav-actions">
+                <!-- Main Links -->
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#certificates" class="nav-link">Certificates</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <!-- Resume Button (Next to Links) -->
+                <a href="https://drive.google.com/file/d/1rzZ9-D42DUOOk1x5YR9m2SCQp2e3jDcD/view?usp=drive_link" target="_blank" class="resume-btn">
+                    <i class="fas fa-download"></i> Resume
+                </a>
+            </div>
+
             <div class="menu-toggle" id="menu-toggle">
                 <span></span>
                 <span></span>
@@ -1218,9 +1229,9 @@
             <li><a href="#education" class="nav-link">Education</a></li>
             <li><a href="#certificates" class="nav-link">Certificates</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
-            <!-- RESUME DOWNLOAD BUTTON ADDED TO MOBILE MENU -->
-            <li>
-                <a href="https://drive.google.com/file/d/1rzZ9-D42DUOOk1x5YR9m2SCQp2e3jDcD/view?usp=drive_link" target="_blank" class="nav-link resume-btn">
+            <!-- Resume Button in Mobile Menu -->
+            <li style="margin-top: 1rem;">
+                <a href="https://drive.google.com/file/d/1rzZ9-D42DUOOk1x5YR9m2SCQp2e3jDcD/view?usp=drive_link" target="_blank" class="resume-btn" style="width: 100%; justify-content: center;">
                     <i class="fas fa-download"></i> Resume
                 </a>
             </li>
@@ -1347,7 +1358,7 @@
                         </div>
                         <div class="project-content">
                             <h3>Invoice Generator</h3>
-                            <p>A desktop application for shops to create and manage invoices, developed using Java Swing.</p>
+                            <p>A desktop application for shops to create and manage invoices, developed using Java Swing for a standalone solution.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">Java</span>
                                 <span class="tech-tag">Java Swing</span>
@@ -1366,7 +1377,7 @@
                         </div>
                         <div class="project-content">
                             <h3>Weather Dashboard</h3>
-                            <p>A simple, responsive weather application that fetches real-time data from a public API.</p>
+                            <p>A simple, responsive weather application that fetches real-time data from a public API and displays current conditions.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">HTML</span>
                                 <span class="tech-tag">CSS</span>
@@ -1387,7 +1398,7 @@
                         </div>
                         <div class="project-content">
                             <h3>Realtime Chatting Web App</h3>
-                            <p>A messenger-like real-time chat application allowing users to communicate instantly.</p>
+                            <p>A messenger-like real-time chat application allowing users to communicate instantly with socket integration.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">Web</span>
                                 <span class="tech-tag">Socket.io</span>
@@ -1407,7 +1418,7 @@
                         </div>
                         <div class="project-content">
                             <h3>Islamic Hadis Web</h3>
-                            <p>A website dedicated to Islamic Hadis, featuring search functionality and beautiful UI.</p>
+                            <p>A website dedicated to Islamic Hadis, featuring search functionality and beautiful UI for reading sacred texts.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">HTML</span>
                                 <span class="tech-tag">CSS</span>
@@ -1438,6 +1449,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -1737,7 +1749,7 @@
             emailjs.send('service_n6l0q49', 'template_1xmrmuc', templateParams)
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
-                    // UPDATED SUCCESS MESSAGE
+                    // Updated Success Message
                     alert('Your message has been sent successfully. I’ll respond soon.');
                     this.reset(); // Reset form
                 }, function(error) {
@@ -1785,6 +1797,14 @@
             body.classList.add('night-mode');
             themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
         }
+
+        // --- NEW: Hide Theme Toggle after 10 seconds ---
+        const themeBtn = document.getElementById('theme-toggle');
+        setTimeout(() => {
+            if(themeBtn) {
+                themeBtn.style.display = 'none';
+            }
+        }, 10000); // 10,000ms = 10 seconds
     </script>
 </body>
 </html>
