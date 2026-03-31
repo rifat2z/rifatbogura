@@ -20,9 +20,9 @@ Portfolio Preview
     CSS3: Flexbox, Grid, CSS Variables, Keyframe Animations, Media Queries.
     JavaScript (Vanilla): DOM manipulation, Intersection Observer API, Event Handling.
     External APIs:
-        EmailJS (For contact form)
-        FontAwesome (Icons)
-        Google Fonts (Poppins & Fira Code)
+    EmailJS (For contact form)
+    FontAwesome (Icons)
+    Google Fonts (Poppins & Fira Code)
 
 🚀 Getting Started
 
