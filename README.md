@@ -64,8 +64,6 @@ The contact form is configured to send emails using EmailJS.  To make it work fo
 📂 Repository Structure 
 bash
  
-  
- 
 portfolio/
 │
 ├── index.html       # Main HTML file
