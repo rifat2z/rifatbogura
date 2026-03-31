@@ -10,6 +10,8 @@ Portfolio Preview
     📱 Fully Responsive: Optimized layout for desktop, tablet, and mobile devices.
     ⚡ Smooth Animations: Fade-in effects on scroll and interactive UI elements.
     📧 Functional Contact Form: Integrated with EmailJS to receive messages directly to email.
+    📂 Project Showcase: Dynamic grid layout to display projects with tech stacks and demo links.
+    🎓 Timeline View: Visual timeline for education and certifications.
 
 
 🛠️ Technologies Used
