@@ -41,7 +41,7 @@ To run this project locally, follow these simple steps:
 ⚙️ Configuration
 Contact Form Setup (EmailJS)
 
-The contact form is configured to send emails using EmailJS. To make it work for you:
+The contact form is configured to send emails using EmailJS.
 
     Sign up at EmailJS and get your Public Key.
     Create an Email Service (e.g., Gmail) and an Email Template.
